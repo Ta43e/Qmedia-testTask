@@ -1,0 +1,1 @@
+export { default as SeminarForm } from './form/SeminarForm';

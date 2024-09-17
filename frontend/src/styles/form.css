@@ -1,0 +1,16 @@
+.form-container {
+    margin-top: 50px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input, .form-group select {
+    margin-bottom: 10px;
+  }
+  
+  .form-group button {
+    margin-top: 10px;
+  }
+  

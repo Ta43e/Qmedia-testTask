@@ -1,0 +1,32 @@
+version: '3'
+networks:
+  dev:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports: 
+      - "8080:80"  # Измените внешний порт на 8080, чтобы избежать конфликта
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - dev
+
+  backend: 
+    build:
+      context: ./backend
+    ports:
+      - "3001:3001"  # Прокидываем порт для backend
+    networks:
+      - dev   
+
+  frontend: 
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"  # Нужен для связи между Nginx и фронтендом
+    networks:
+      - dev
